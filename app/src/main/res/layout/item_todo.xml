@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="todoData"
+            type="com.dipen.todoapp.data.models.ToDoData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        sendDataToUpdateFragment="@{todoData}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_item"
+        android:padding="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/priority"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:parsePriorityColor="@{todoData.priority.color}"
+            app:cardCornerRadius="120dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{todoData.title}"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/priority"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/txt_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLength="300"
+            android:maxLines="10"
+            android:text="@{todoData.description}"
+            app:layout_constraintEnd_toEndOf="@+id/txt_title"
+            app:layout_constraintStart_toStartOf="@+id/txt_title"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title"
+            tools:text="dasdsad" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
