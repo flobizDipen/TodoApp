@@ -12,7 +12,6 @@ import com.dipen.todoapp.data.models.ToDoData
 abstract class ToDoDatabase : RoomDatabase() {
 
     abstract fun toDoDao(): ToDoDao
-
     companion object {
 
         @Volatile
